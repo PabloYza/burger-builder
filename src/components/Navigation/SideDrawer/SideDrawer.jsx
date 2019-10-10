@@ -18,8 +18,6 @@ const sideDrawer = (props) => {
         clicked={props.closed}
       />
       <div className={attachedClasses.join(' ')}>
-        <div className={classes.Logo}>
-        </div>
         <nav>
           <NavigationItems />
         </nav>
