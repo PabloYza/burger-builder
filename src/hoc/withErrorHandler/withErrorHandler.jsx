@@ -19,7 +19,7 @@ const withErrorHanlder = (WrappedComponent, axios) => {
       });
     }
 
-    // To cleanup interceptors
+    // To clean up interceptors
     componentWillUnmount() {
       axios.interceptors.request.eject(this.reqInterceptor);
       axios.interceptors.response.eject(this.resInterceptor);
