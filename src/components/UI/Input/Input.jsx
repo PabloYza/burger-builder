@@ -1,36 +1,50 @@
 import React from 'react';
-import classes from './Input.css'
 
+import classes from './Input.css';
 
 const input = (props) => {
   let inputElement = null;
 
-  switch(props.inputtype) {
+  switch (props.elementType) {
     case ('input'):
       inputElement = <input
-        className={classes.inputElement}
+        className={classes.InputElement}
         {...props.elementConfig}
         value={props.value}
-      />;
+        onChange={props.changed} />;
       break;
-    case('textearea'):
+    case ('textarea'):
       inputElement = <textarea
-        className={classes.inputElement}
+        className={classes.InputElement}
         {...props.elementConfig}
         value={props.value}
-      />;
+        onChange={props.changed} />;
+      break;
+    case ('select'):
+      inputElement = (
+        <select
+          className={classes.InputElement}
+          value={props.value}
+          onChange={props.changed}>
+          {props.elementConfig.options.map(option => (
+            <option key={option.value} value={option.value}>
+              {option.displayValue}
+            </option>
+          ))}
+        </select>
+      );
       break;
     default:
       inputElement = <input
-        className={classes.inputElement}
+        className={classes.InputElement}
         {...props.elementConfig}
         value={props.value}
-      />;
+        onChange={props.changed} />;
   }
 
   return (
-    <div className={classes.Input} >
-      <label className={classes.Label} >{props.label}</label>
+    <div className={classes.Input}>
+      <label className={classes.Label}>{props.label}</label>
       {inputElement}
     </div>
   );
