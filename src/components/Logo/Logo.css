@@ -6,6 +6,10 @@
     border-radius: 5px;
 }
 
+.Logo:hover {
+  cursor: pointer;
+}
+
 .Logo img {
     height: 100%;
 }
