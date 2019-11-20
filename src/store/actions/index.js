@@ -10,4 +10,4 @@ export {
 } from './order';
 export {
   auth
-} from './Auth'
+} from './auth'
